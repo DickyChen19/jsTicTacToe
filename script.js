@@ -223,11 +223,22 @@ function change(num) {
     if (flag == 1) {
         btns[num].value = "X";
         flag = 0;
-        
+        xbtns.push(btns[num]);
+        if (xbtns.length > 3) {
+            xbtns[0].value = "";
+            xbtns[0].disabled = false;
+            xbtns.shift();
+        }
     } else if (flag == 0) {
         btns[num].value = "0";
         flag = 1;
+        obtns.push(btns[num]);
+        if (obtns.length > 3) {
+            obtns[0].value = "";
+            obtns[0].disabled = false;
+            obtns.shift();
+        }
     }
     btns[num].disabled = true;
     myfunc();
-}
+} 
